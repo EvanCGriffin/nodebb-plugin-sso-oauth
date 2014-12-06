@@ -38,12 +38,12 @@
 				consumerSecret: ''
 			},
 			oauth2: {
-			    authorizationURL: 'http://irish25s.herokuapp.com/auth/start',
-			    tokenURL: 'http://irish25s.herokuapp.com/auth/exchange',
+			    authorizationURL: 'https://irish25s.herokuapp.com/auth/start',
+			    tokenURL: 'https://irish25s.herokuapp.com/auth/exchange',
 				clientID: '0',
 				clientSecret: '13e580db-720c-40ea-b2cb-4ddf8b27f5a8'
 			},
-			userRoute: 'http://irish25s.herokuapp.com/api/user/profile',	// This is the address to your app's "user profile" API endpoint (expects JSON)
+			userRoute: 'https://irish25s.herokuapp.com/api/user/profile',	// This is the address to your app's "user profile" API endpoint (expects JSON)
 			scope: 'view_account'
 		}),
 		configOk = false,
