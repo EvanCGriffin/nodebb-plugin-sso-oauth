@@ -125,7 +125,7 @@
 				name: constants.name,
 				url: '/auth/' + constants.name,
 				callbackURL: '/auth/' + constants.name + '/callback',
-				icon: 'fa-check-square',
+				icon: 'fa-gamepad',
 				scope: (constants.scope || '').split(',')
 			});
 
