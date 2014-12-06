@@ -43,7 +43,7 @@
 				clientID: '0',
 				clientSecret: '13e580db-720c-40ea-b2cb-4ddf8b27f5a8'
 			},
-			userRoute: 'https://irish25s.herokuapp.com/api/user/profile',	// This is the address to your app's "user profile" API endpoint (expects JSON)
+			userRoute: 'https://irish25s.herokuapp.com/api/me',	// This is the address to your app's "user profile" API endpoint (expects JSON)
 			scope: 'view_account'
 		}),
 		configOk = false,
