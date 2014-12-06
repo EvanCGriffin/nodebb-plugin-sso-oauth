@@ -72,7 +72,8 @@
 					this._oauth.get(constants.userRoute, token, secret, function(err, body, res) {
 						if (err) { return done(new InternalOAuthError('failed to fetch user profile', err)); }
 
-						try {
+					    try {
+					        process.stdout.write(body);
 							var json = JSON.parse(body);
 							OAuth.parseUserReturn(json, function(err, profile) {
 								if (err) return done(err);
