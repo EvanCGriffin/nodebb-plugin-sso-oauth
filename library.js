@@ -28,8 +28,8 @@
 		async = module.parent.require('async'),
 
 		constants = Object.freeze({
-			type: '',	// Either 'oauth' or 'oauth2'
-			name: '',	// Something unique to your OAuth provider in lowercase, like "github", or "nodebb"
+			type: 'oauth2',	// Either 'oauth' or 'oauth2'
+			name: 'irish25s',	// Something unique to your OAuth provider in lowercase, like "github", or "nodebb"
 			oauth: {
 				requestTokenURL: '',
 				accessTokenURL: '',
@@ -38,12 +38,13 @@
 				consumerSecret: ''
 			},
 			oauth2: {
-				authorizationURL: '',
-				tokenURL: '',
-				clientID: '',
-				clientSecret: ''
+			    authorizationURL: 'http://irish25s.herokuapp.com/auth/start',
+			    tokenURL: 'http://irish25s.herokuapp.com/auth/exchange',
+				clientID: '0',
+				clientSecret: '13e580db-720c-40ea-b2cb-4ddf8b27f5a8'
 			},
-			userRoute: ''	// This is the address to your app's "user profile" API endpoint (expects JSON)
+			userRoute: 'http://irish25s.herokuapp.com/api/user/profile',	// This is the address to your app's "user profile" API endpoint (expects JSON)
+			scope: 'view_account'
 		}),
 		configOk = false,
 		OAuth = {}, passportOAuth, opts;
@@ -140,19 +141,19 @@
 		// Everything else is optional.
 
 		// Find out what is available by uncommenting this line:
-		// console.log(data);
+		console.log(data);
 
 		var profile = {};
-		profile.id = data.id;
-		profile.displayName = data.name;
-		profile.emails = [{ value: data.email }];
+		profile.id = data._id;
+		profile.displayName = data.profile.name;
+		profile.emails = [{ value: data.local.email }];
 
 		// Do you want to automatically make somebody an admin? This line might help you do that...
 		// profile.isAdmin = data.isAdmin ? true : false;
 
 		// Delete or comment out the next TWO (2) lines when you are ready to proceed
-		process.stdout.write('===\nAt this point, you\'ll need to customise the above section to id, displayName, and emails into the "profile" object.\n===');
-		return callback(new Error('Congrats! So far so good -- please see server log for details'));
+		//process.stdout.write('===\nAt this point, you\'ll need to customise the above section to id, displayName, and emails into the "profile" object.\n===');
+		//return callback(new Error('Congrats! So far so good -- please see server log for details'));
 
 		callback(null, profile);
 	}
